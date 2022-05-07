@@ -1,0 +1,22 @@
+Complete new PSU circuit
+Removed both buck converters --> LDO's MIC29302 and  BD50HC5MEFJ
+Input voltage now 6.5V
+
+ATTiny85 U51: connected +3V3A
+Pin1 U51 ATTiny85 disconnected from MUXOUT pin30 U54, pin 5 U51 from MUXOUT pin30 U53
+
+Lib element Q31 and Q32 EMG1 changed to TO25-5
+
+Extra 68ohm R19 parallel L2 (drain SBB3089) to avoid oscillations
+Footprint both zenerdiode changed to 0805
+
+Add extra 4K7 pullup resistor R37 from PTT to 6.5V
+Zener D36 changed to 5V1.
+ICSP J52 connector footprint changed to SMD
+
+To get more RX gain, optional U6 PGA103 can be replaced by MGA85675, extra R20 in series drain
+
+Modified IF input can now handle 5W
+
+
+
