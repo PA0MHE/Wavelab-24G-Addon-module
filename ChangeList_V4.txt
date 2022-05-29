@@ -18,5 +18,14 @@ To get more RX gain, optional U6 PGA103 can be replaced by MGA85675, extra R20 i
 
 Modified IF input can now handle 5W
 
+To improve the -5V stabilization:
+- Change the supply voltage from 6.5V into 7.5V. But now a small heatsink is required for U32 and U33
+- Change C38 and C40 into 22uF e.g. 22uF 10V 0805 Mouser 81-GRM21BR61A226ME1L
+
+To better get +6V on "+6 TX":
+Change R44 from 200E into 180E
+
+
+
 
 
