@@ -1,0 +1,61 @@
+How I did a first time test and measured a new Wavelab 24GHz add-on module.
+
+I use a step by step approach:
+- The pinstrips J2, J3 and J4 I only mount afterwards.
+- Optically check if everything is present and well soldered.
+
+Supply:
+In RX, PTT open, high on pin 1 J32
+-  +5V on C42
+-  +5V on C43
+- +3V3 on C57
+-  -5V on C45
+in TX mode, PTT short to ground, and pin 9 and 10 of J2 temporarily short circuited to simulate the RF module .
+-  +6V on C41
+-  +5V on C44
+
+PTT switching:
+In RX:
+C12 and C22: 0V
+C11 and C23: 5V
+In TX:
+C12 and C22: 5V
+C11 and C23: 0V
+
+In circuit programming U51:
+Or directly upload HEX files or compile and upload.
+Arduino IDE setting for compiling: Board "ATtiny25/45/85", Processor "ATtiny85", Clock "internal 1MHz"
+Connect AVRISP MKII to J52
+Ensure both U53 and U54 are powered: JP51 and JP52 closed.
+Leave JP53 and JP54 always open
+
+Test ADF4351's U53 and U54:
+- Test with a multimeter in ohms if U53 and U54 are soldered correctly: 
+    - Open pins: With a multimeter in the diode range, the plus terminal to ground and the other to a connected component: e.g. C or R you can measure if the pin is connected. Example: on C64 and C66,connected to pin 23 U54, you should measure ~~0.2V. 
+- Check also short circuits: e.g. no short circuit between pin 23 C64 and  pin 24 C68. 
+- Measure currents of U53 and U54 on JP51 and JP52, if OK short both jumpers JP51 and JP52 you can expect 71mA no code loaded 88mA code loaded
+- with a DC voltmeter I usually check all DC values on all pins of U53 and U54, tapping on connected components. But perhaps this step is only needed to find fault.
+- Ensure U51 is programmed
+- Ensure 10MHz reference is connected and arrives at inputs of U53 and U54
+- Connect supply; after 1 second first lock indication should switch on 500ms later also the other.
+- 1807MHz should be present at pin 17-18 J2
+- Check U1: connect a current meter between pins 1 and 2 from JP1: you should expect a current of ~~ 55 mA, if OK short JP1
+- 1932MHz (case IF 432MHz) should be present on C6
+
+Test 2364MHz TX:
+Place module in TX, PTT short to ground
+- Check U5: connect a current meter between pins 1 and 2 from JP3: you should expect a current of ~~ 55 mA, if OK short JP3
+- 2364MHz should be present on pin 3-4 J3 (As test stimulus I usually connect +2dBm 432MHz on C8, and measure +1dBm on 2364MHz)
+
+Test RX:
+Place module in RX, PTT open
+- Check U6: connect a current meter between pins 1 and 2 from JP4: you should expect a current of ~~ 15 mA (case MGA-86576), if OK short JP3-  
+- As test stumulus I insert -20dBm 2364MHz (e.g. from a Pluto) on pin 13-14 J4 and I measure RX gain ~4dB 432MHz on J1
+
+Add-on module current consumption:
+- RX mode: ~~300mA
+- TX mode: ~~335mA
+
+Finally I mount the pinstrips and mate with the RF module.
+Then step by step I verify the currents via the solder jumpers and close them.
+
