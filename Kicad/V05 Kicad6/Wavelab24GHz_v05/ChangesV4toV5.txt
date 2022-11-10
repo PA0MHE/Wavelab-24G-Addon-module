@@ -1,0 +1,6 @@
+R65, R66 added as option for U52 ADM7151 (chip shortage)
+R36      update service print to "+5V"
+U6       changed footprint to MGA-86576 (still possible to mount PGA103+, but too little gain)
+J31, J32, J33, J1, J2, J3 No solder paste
+
+
