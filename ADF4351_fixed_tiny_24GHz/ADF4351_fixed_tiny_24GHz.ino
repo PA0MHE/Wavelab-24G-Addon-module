@@ -21,7 +21,9 @@
 #define DAT DDB1 
 
 uint32_t reg1[6] =  {0x5A0038, 0x8008051, 0x1A004E42, 0x4B3, 0x9A003C, 0x580005} ; // 1807MHz, ref 10MHz x2, 5dBm, Muxout: digital lock detect
+//uint32_t reg1[6] =  {0x5A8048, 0x8008051, 0x1A004E42, 0x4B3, 0x9A003C, 0x580005} ; // 1819MHz, ref 10MHz x2, 5dBm, Muxout: digital lock detect
 //uint32_t reg2[6] =  {0x378000, 0x8008011, 0x1A004E42, 0x4B3, 0x8A003C, 0x580005} ; // 2m, 2220MHz, ref 10MHz x2, 5dBm, Muxout: digital lock detect
+//uint32_t reg2[6] =  { 0x600018, 0x8008029, 0x1A004E42, 0x4B3, 0x9A003C, 0x580005 } ; //438MHz, 1926MHz, ref 10MHz x2, 5dBm, Muxout: digital lock detect 
 uint32_t reg2[6] =  {0x608008, 0x8008029, 0x1A004E42, 0x4B3, 0x9A003C, 0x580005} ; // 70cm, 1932MHz, ref 10MHz x2, 5dBm, Muxout: digital lock detect
 
 void setup() {
